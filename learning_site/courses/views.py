@@ -7,6 +7,5 @@ from .models import Course
 
 def course_list(request):
     courses = Course.objects.all()
-    # output = ', '.join([str(course) for course in courses])
-
-    return HttpResponse("There are " + str(len(courses)) + "courses." )
+    return render(request, 'courses/course_list.html',
+        {'courses': courses})
